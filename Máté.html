@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2017 by Kidd5kali (http://jsbin.com/zesidom/1/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+
+<html>
+  <head>
+    <title>Galéria</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="galéria, autó, bmw, opel, tesla, vw">
+    <meta content ="html; charset =utf-8">
+   
+    <style>body{background:silver;}
+    </style>
+  </head>
+
+  <body>
+   <h1 style="color:#8F4E1B">Galéria</h1>
+
+   <hr>
+
+   <p>Üdvözöljük Önt a galériában! <br><br>Kérjük, hogy az alábbi listából válassza ki a megtekinteni kívánt autót.</p>
+
+   <select name ="autovalaszto" id ="cars" onchange="carsChangedHandler(this);">
+   <option value = "valasszon">Kérjük, válasszon márkát</option>
+   <option value = "bmw">BMW</option>
+   <option value = "opel">Opel</option>
+   <option value = "tesla">Tesla</option>
+   <option value = "vw">VW</option>
+   </select>
+   
+   <br><br>
+    
+   <p>Model választása</p>
+
+   <select name = "modell" id ="modell" size = "5" style="width:100px" onchange = "text(this)">
+   </select>
+
+   <br><br><br>
+   
+   <table style="border-spacing:20px" align="center">
+   <tr>
+     <td><img id ="picture" height ="200" width="500" style ="display:none"></td>
+     <td width ="150"><span id = "content"> </span></td>
+   </tr>
+   </table>
+   
+
+   <script src="scripts/galeria.js"></script>
+  <script id="jsbin-javascript">
+   var obj_Picture=document.getElementById("picture");
+   var obj_selectModell = document.getElementById("modell");
+   var textContent = document.getElementById("content");
+
+function carsChangedHandler(sender)
+{
+   var selected = sender.value;
+   var c = document.createElement("option");
+   var d = document.createElement("option");
+   
+   
+   if(obj_selectModell.options.length !=0) {
+      obj_selectModell.options.length =0;
+   }
+
+   if(obj_Picture.src !== undefined) {
+      obj_Picture.src = undefined;
+      obj_Picture.style.display = "none";
+   }
+
+   if(textContent.innerHTML != " ") {
+      textContent.innerHTML = " ";
+   }
+
+
+
+   if (selected =="bmw") {
+     c.text = "M140i";
+     obj_selectModell.options.add(c,1);
+     d.text ="M240i";
+     obj_selectModell.options.add(d,2);
+   }
+
+   if (selected =="opel") {
+     c.text = "Astra";
+     obj_selectModell.options.add(c,1);
+     d.text ="Insigna";
+     obj_selectModell.options.add(d,2);
+   }
+
+   
+   if (selected =="tesla") {
+     c.text = "Model S";
+     obj_selectModell.options.add(c,1);
+     d.text ="Model X";
+     obj_selectModell.options.add(d,2);
+   }
+
+   if (selected =="vw") {
+     c.text = "Polo";
+     obj_selectModell.options.add(c,1);
+     d.text ="Beetle";
+     obj_selectModell.options.add(d,2);
+   }
+}
+
+
+function text(y){
+  var t = y.value;
+
+  if (t=="M140i"){
+     obj_Picture.style.display = "inline";
+     textContent.innerHTML="A BMW 1-es sorozaton belül a BMW M140i egyedülálló módon 6 hengeres benzinmotorral lép csatasorba, amely a 3 ajtós modellt 4,8 másodperc alatt gyorsítja fel 100 km/órás sebességre.";
+     obj_Picture.src="http://i.imgur.com/HBNlIZd.jpg"
+  }
+
+  if (t=="M240i"){
+     obj_Picture.style.display = "inline";
+     textContent.innerHTML="A BMW M240i Coupé ott kezd csak igazán belelendülni, ahol mások már feladják – ami nem is csoda, hiszen a kompakt M Performance Coupé M Performance TwinPower technológiájú erőforrást és különleges hangolású M Sport futóművet állít csatasorba.";
+     obj_Picture.src= "http://i.imgur.com/puii7qa.jpg"
+  }
+
+  if (t=="Astra"){
+     obj_Picture.style.display = "inline";
+     textContent.innerHTML="Négy felszereltségi szinttel jelenik meg az Astra: Selection, Enjoy, Dynamic és Innovation .";
+     obj_Picture.src= "http://i.imgur.com/vHq5Lw2.jpg"
+  }
+
+  if (t=="Insigna"){
+     obj_Picture.style.display = "inline";
+     textContent.innerHTML="Az Opel Insignia négyajtós, ötajtós, Sports Tourer vagy Country Tourer formában kapható.";
+     obj_Picture.src= "http://i.imgur.com/dd6gXoz.jpg"
+  }
+
+  if (t=="Model S"){
+     obj_Picture.style.display = "inline";
+     textContent.innerHTML="A Tesla Model S-t úgy tervezték, hogy az utakon a legbiztonságosabb autó legyen. A Model S-ben található teljesen egyedi elektromos hajtáslánc páratlan teljesítményt biztosít, a Model S mindössze 2,7 másodperc alatt gyorsul 0-ról 100km/h-ás sebességre.";
+     obj_Picture.src= "http://i.imgur.com/1UZXjH9.jpg"
+  }
+
+  if (t=="Model X"){
+     obj_Picture.style.display = "inline";
+     textContent.innerHTML="A Model X az autóipar történelmének egyik legbiztonságosabb, leggyorsabb és legsportosabb járműve. Az összkerékmeghajtással rendelkező Model X 100 kWh-ás akkumulátorral lett felszerelve, mely megközelítőleg 542 km-es hatótávolságot biztosít.";
+     obj_Picture.src= "http://i.imgur.com/0Jw3alf.jpg"
+  }
+
+  if (t=="Polo"){
+     obj_Picture.style.display = "inline";
+     textContent.innerHTML="A Polo a kifinomult és jól bevált technikák autója. Kiemelkedően gazdaságos motorjai és átgondolt biztonsági illetve vezetői segédrendszerei egyaránt új mércéül szolgálhatnak a vetélytársak körében.";
+     obj_Picture.src= "http://i.imgur.com/9iasGbQ.jpg"
+  }
+
+  if (t=="Beetle"){
+     obj_Picture.style.display = "inline";
+     textContent.innerHTML="Újra köztünk az immár ikonná vált formavilág, amely semmi mással nem téveszthető össze, bárhonnan tekintünk is rá. Igaz, a legújabb Beetle egyértelműen erőteljesebb és atletikusabb benyomást kelt elődeinél, ám biztosak lehetünk benne, hogy az izmosabb külső mögött ugyanaz a lélek rejtőzik.";
+     obj_Picture.src= "http://i.imgur.com/7aditnQ.jpg"
+  }
+}
+
+
+
+</script>
+</body>
+</html>
